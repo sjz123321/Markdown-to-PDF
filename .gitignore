@@ -1,0 +1,33 @@
+# dependencies
+node_modules/
+
+# Chromium downloaded by puppeteer
+chrome-linux/
+chrome-win/
+chrome-mac/
+.chromium/
+chrome
+
+# generated PDF output
+*.pdf
+
+# test artifacts
+test/*.pdf
+test/output/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -1,0 +1,21 @@
+{
+  "name": "md2pdf-tool",
+  "version": "1.0.0",
+  "description": "Markdown 转 PDF 命令行工具 — 支持目录、自定义样式、页眉页脚、多文件合并",
+  "main": "cli.js",
+  "bin": {
+    "md2pdf": "./cli.js"
+  },
+  "scripts": {
+    "start": "node cli.js"
+  },
+  "keywords": ["markdown", "pdf", "converter", "md-to-pdf"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "commander": "^14.0.3",
+    "marked": "^18.0.3",
+    "puppeteer": "^24.43.1"
+  }
+}
