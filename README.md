@@ -1,94 +1,98 @@
-# md2pdf — Markdown 转 PDF 命令行工具
+[**English**](README.md) | [**中文**](README_zh.md)
 
-将 Markdown 文件转换为排版精美的 PDF，支持中文、代码高亮、表格、目录、自定义样式等特性。
+---
 
-## 特性
+# md2pdf — Markdown to PDF CLI Tool
 
-- **即装即用** — Node.js + Chromium（Puppeteer），无需额外系统依赖
-- **中文优先** — 内置中文字体栈（PingFang / Microsoft YaHei / Noto Sans SC）
-- **多文件合并** — 将多个 `.md` 合并为一个 PDF
-- **自动目录** — `--toc` 根据标题层级生成超链接目录
-- **自定义样式** — `--css` 传入自定义 CSS 覆盖默认主题
-- **页眉页脚** — `--header / --footer` 支持页码占位符
-- **代码高亮** — 深色背景代码块 + 可选行号（`--line-numbers`）
-- **页面控制** — 支持 A4 / Letter / 横向 / 自定义边距
-- **打印友好** — `--print` 保留背景色
+Convert Markdown files to beautifully formatted PDFs, with full support for Chinese text, syntax-highlighted code blocks, tables, table of contents, custom stylesheets, and more.
 
-## 安装
+## Features
+
+- **Zero-config setup** — Node.js + Chromium (Puppeteer), no system-level dependencies
+- **Chinese-first** — Built-in font stack (PingFang / Microsoft YaHei / Noto Sans SC)
+- **Multi-file merge** — Combine several `.md` files into a single PDF
+- **Auto table of contents** — `--toc` generates a linked TOC from heading levels
+- **Custom styles** — `--css` accepts a custom stylesheet to override the default theme
+- **Headers & footers** — `--header / --footer` with page-number placeholder support
+- **Code highlighting** — Dark-themed code blocks + optional line numbers (`--line-numbers`)
+- **Page control** — A4 / Letter / landscape / custom margins
+- **Print-friendly** — `--print` preserves background colors for physical printing
+
+## Installation
 
 ```bash
-# 克隆项目
+# Clone the repo
 git clone https://github.com/your-username/md2pdf-tool.git
 cd md2pdf-tool
 
-# 安装依赖
+# Install dependencies
 npm install
 
-# （可选）全局安装，之后可直接使用 md2pdf 命令
+# (Optional) Install globally for the md2pdf command
 npm link
 ```
 
-要求 Node.js >= 18。
+Requires Node.js >= 18.
 
-## 使用
+## Usage
 
 ```bash
-# 转换单个文件（输出同名的 .pdf）
+# Convert a single file (outputs to the same name with .pdf)
 node cli.js input.md
 
-# 指定输出路径
+# Specify output path
 node cli.js input.md -o output.pdf
 
-# 合并多个文件
+# Merge multiple files
 node cli.js chapter1.md chapter2.md -o book.pdf
 
-# 生成目录
+# Generate table of contents
 node cli.js readme.md --toc
 
-# 横向页面 + 自定义边距
+# Landscape + custom margins
 node cli.js document.md --landscape --margin 15mm
 
-# 页眉页脚
-node cli.js doc.md --header "项目文档" --footer "第 %page% 页"
+# Headers and footers
+node cli.js doc.md --header "Project Docs" --footer "Page %page%"
 
-# 自定义样式
+# Custom stylesheet
 node cli.js doc.md --css my-theme.css
 
-# 代码块行号 + 打印友好
+# Code line numbers + print-friendly
 node cli.js doc.md --line-numbers --print
 
-# 生成后自动打开 PDF
+# Open PDF automatically after generation
 node cli.js readme.md --open
 ```
 
-全局安装后：
+After global install:
 
 ```bash
 md2pdf readme.md
 md2pdf chap1.md chap2.md -o book.pdf --toc --landscape
 ```
 
-## 选项
+## Options
 
-| 选项 | 说明 | 默认 |
-|------|------|------|
-| `-o, --output` | 输出 PDF 路径 | 输入文件名 + `.pdf` |
-| `--css` | 自定义 CSS 文件 | 内置默认样式 |
-| `--header` | 页眉文本（HTML） | 无 |
-| `--footer` | 页脚文本（支持 `%page%`） | 无 |
-| `--page-size` | 页面大小 | `A4` |
-| `--margin` | 页面边距（CSS 单位） | `25.4mm` |
-| `--landscape` | 横向布局 | 否 |
-| `--toc` | 生成标题目录 | 否 |
-| `--line-numbers` | 代码块显示行号 | 否 |
-| `--print` | 打印友好模式 | 否 |
-| `--open` | 生成后打开 PDF | 否 |
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-o, --output` | Output PDF path | Input filename + `.pdf` |
+| `--css` | Custom CSS file path | Built-in default theme |
+| `--header` | Header text (HTML) | None |
+| `--footer` | Footer text (supports `%page%`) | None |
+| `--page-size` | Page size | `A4` |
+| `--margin` | Page margin (CSS unit) | `25.4mm` |
+| `--landscape` | Landscape orientation | No |
+| `--toc` | Generate table of contents | No |
+| `--line-numbers` | Show line numbers in code blocks | No |
+| `--print` | Print-friendly mode | No |
+| `--open` | Open PDF after generation | No |
 
-## 技术栈
+## Tech Stack
 
-- **[marked](https://github.com/markedjs/marked)** — Markdown → HTML 解析
+- **[marked](https://github.com/markedjs/marked)** — Markdown → HTML parser
 - **[Puppeteer](https://github.com/puppeteer/puppeteer)** — Headless Chromium HTML → PDF
-- **[commander](https://github.com/tj/commander.js)** — CLI 参数解析
+- **[commander](https://github.com/tj/commander.js)** — CLI argument parser
 
 ## License
 
